@@ -1,0 +1,35 @@
+h3 {
+  font-size: 20px;  
+}
+
+div{
+  background-color: aquamarine;
+}
+p{
+  color: blueviolet;
+}
+
+.box{
+  background-color: blueviolet;
+}
+
+#first-box{
+  background-color: brown;
+}
+
+#first-paragraph{
+  display: block;
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}
+
+#second-paragraph{
+  display: inline-block;
+  height: 50px;
+  width: 500px;
+  background-color: blue;
+}
+.custom_class{
+  color: yellow;
+}
