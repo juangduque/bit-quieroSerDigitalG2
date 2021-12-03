@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="./index.css">
   </head>
   <body>
+    <!--
+      <a href="#redirect">
+        <div class="fixed"></div>
+      </a>
+    -->
     <header><h1>Súper periodico</h1></header>
     <nav>
       <ul>
@@ -41,12 +46,14 @@
       </section>
       <!-- Main news -->
       <section class="main-news">
-        <h2>Título principal</h2>
-        <img src="https://www.eltiempo.com/files/image_468_307/uploads/2021/11/30/61a61475a94ac.jpeg" alt="omicron news">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis omnis aliquam autem sint modi quos a voluptates cum eos! Labore officiis cumque laborum excepturi eligendi, rerum vero dicta dignissimos aut?</p>
+        <div class="mainNews-container">
+          <h2>Título principal</h2>
+          <img src="https://www.eltiempo.com/files/image_468_307/uploads/2021/11/30/61a61475a94ac.jpeg" alt="omicron news">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis omnis aliquam autem sint modi quos a voluptates cum eos! Labore officiis cumque laborum excepturi eligendi, rerum vero dicta dignissimos aut?</p>          
+        </div>
       </section>
       <!-- sports -->
-      <section class="sports-section">
+      <section class="sports-section" id="redirect">
         <div>
           <h2>Título deportes</h2>
           <img src="" alt="">
@@ -57,5 +64,8 @@
       </section>
     </main>
     <footer></footer>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
   </body>
 </html>
