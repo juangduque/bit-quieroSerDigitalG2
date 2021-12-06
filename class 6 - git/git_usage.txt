@@ -1,0 +1,125 @@
+Algunos comandos que pueden ayudar cuando colaboren con proyectos muy grandes de github:
+
+GIT LOG
+Muestra información sobre los commits en consola
+- git log --oneline // Te muestra el id commit y el título del commit.
+- git log --decorate // Te muestra donde se encuentra el head point en el log.
+- git log --stat // Explica el número de líneas que se cambiaron brevemente.
+- git log -p // Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.
+- git shortlog // Indica que commits ha realizado un usuario, mostrando el usuario y el titulo de sus commits.
+- git log --graph --oneline --decorate y
+- git log --pretty=format:"%cn hizo un commit %h el dia %cd" // Muestra mensajes personalizados de los commits.
+- git log -3 // Limitamos el número de commits.
+- git log --after=“2018-1-2” ,
+- git log --after=“today” y
+- git log --after=“2018-1-2” --before=“today” // Localizar commits por fechas.
+- git log --author=“Name Author” // Commits realizados por autor que cumplan exactamente con el nombre.
+- git log --grep=“INVIE” // Busca los commits que cumplan tal cual está escrito entre las comillas.
+- git log --grep=“INVIE” –i- // Busca los commits que cumplan sin importar mayúsculas o minúsculas.
+- git log – index.html- // Busca los commits en un archivo en específico.
+- git log -S “Por contenido” // Buscar los commits con el contenido dentro del archivo.
+- git log > log.txt // guardar los logs en un archivo txt
+
+GIT MAIN COMMANDS
+- git init //Inicia un nuevo repositorio en la dirección del archivo en la que se está
+- git checkout -b [Nombre rama] //Para crear una rama	
+- git merge develop //Fusiona las ramas. Sólo volverá a haber una rama
+- git branch //Lista las ramas
+- git status //Ver los cambios que hay
+- git checkout [Nombre rama] //Cambiar de rama
+- git rebase [nombre rama] //Guardar los cambios de otra rama en la actual especificando la rama de la cual se quiere copiar el contenido
+- git log //Ver el historico de commits de la rama en la que se está trabajando
+- git add [opcion/archivo] //Agrega archivo(s) al staging area
+- git rm [Archivo] //Quitar un archivo del staging area o del repo
+- git rm --cached [archivo] //Quitar un archivo cacheado del staging area 
+- git rm --force //Elimina los archivos de Git y del disco duro.
+- git config //Lista las opciones que se pueden hacer con git con info detallada
+- git config --list //Muestra las configuraciones que tiene git
+- git config --global user.name "[nombre]" //Pone el nombre indicado a las variables de entorno nombre
+- git config --global user.email "[email]" //Pone correo de usuario
+- git show ?[archivo] //Muestra los cambios hechos sobre un archivo específico
+- git diff [numero de commit] [otro número de commit a comparar] //Compara cambios entre commits
+- git reset [num de commit] --[indicador] //Vuelve en el tiempo a algún commit previo. indicador hace referencia a soft o hard. Hard elimina todos los commits hasta quedarse en el estado del commit indicado con el número de commit.
+- git log --stat //Muestra cambios especificos de los archivos a partir del commit
+- git reset HEAD //los últimos cambios de estos archivos no se envíen al último commit
+- git remote add origin [URL del repo] //Enlazar un repo remoto al repositorio local
+- git remote -v //Muestra las url's para hacer fetch y push si ya está enlazado a un repo remoto
+- git pull origin master --allow-unrelated-histories //Forza al repositorio local a hacer un merge con el repositorio remoto para fusionarlos y permitir hacer commits entre estos, ya que no se permitia.
+- git push origin master //Actualizar el repo remoto con respecto a la información que hay en el repo local
+- git log --all --graph //Muestra los logs del repositorio con graficas de las ramas
+- git log --all --graph --decorate --oneline //Muestra la versión de las ramas simplificada 
+- git tag -a [tag] -m "[mensaje]" [hash] //Crea un tag para las commits que permite identificar versiones por medio de esos tags ej: git tag -a v0.1 -m "Versión preliminar de desarrollo" 1b45f32
+- git tag //Ver los tags
+- git show-ref --tags //Ver los tags a que commits estan conectados
+- git push origin --tags //Forma para enviar los tags a origin en repo remoto
+- git tag -d [nombre del tag] //Eliminar un tag
+- git push origin :refs/tags/[nombre del tag] //Eliminar un tag del repo remoto
+- git show-branch --all //Muestra el historial de las ramas 
+- gitk //Muestra de forma visual el historial de las 
+- git rebase origin/main // Hace rebase de la rama main en origin, sobre la cual estemos trabajando (uso recomendado: git fetch -a, git rebase origin/main)
+
+GIT STASH
+Guarda cambios o archivos sin meterlos a un commit.
+- git stash // Guarda el trabajo actual de manera temporal. (Archivos modificados o eliminados)
+- git stash -u // Crea un stash con todos los archivos. (Añadiendo los creados Untracked)
+- git stash save “mensaje” // Crea un stash con el mensaje especificado.
+- git stash list // Permite visualizar todos los stash existentes.
+- git stash clear // Elimina todos los stash existentes.
+- git stash drop // Elimina el stash más reciente. El que tiene num_stash=0.
+- git stash drop stash@{num_stash} : Elimina un stash específico.
+- git stash apply : Aplica el stash más reciente. El que tiene num_stash=0.
+- git stash apply stash@{num_stash} : Aplica los cambios de un stash específico.
+- git stash pop : Aplica el stash más reciente y lo elimina. El que tiene num_stash=0.
+- git stash pop stash@{num_stash} : Aplica los cambios de un stash específico y elimina lo stash.
+- git stash branch nombre_de_rama : Crea una rama y aplica el stash mas reciente.
+- git stash branch nombre_de_rama stash@{num_stash} : Crea una rama y aplica el stash especificado.
+
+Consideraciones:
+
+El cambio más reciente (al crear un stash) SIEMPRE recibe el valor 0 y los que estaban antes aumentan su valor.
+Al crear un stash tomará los archivos que han sido modificados y eliminados. Para que tome un archivo creado es necesario agregarlo al Staging Area con git add [nombre_archivo] con la intención de que git tenga un seguimiento de ese archivo, o también utilizando el comando git stash -u.
+Al aplicar un stash este no se elimina, es buena práctica eliminarlo.
+
+GIT CLEAN
+El comando clean actúa en archivos sin seguimiento, este tipo de archivos son aquellos que se encuentran en el directorio de trabajo, pero que aún no se han añadido al índice de seguimiento de repositorio con el comando add
+- git clean --dry-run
+- git clean -f
+
+GIT CHERRY-PICK
+Este comando permite coger uno o varios commits de otra rama sin tener que hacer un merge completo. Así, gracias a cherry-pick, podríamos aplicar los commits relacionados con nuestra funcionalidad. Para ello, primero debemos asegurarnos de que estamos trabajando con esa rama master.
+- git cherry-pick [COMMIT-ID]
+
+GIT AMMEND
+Este comando sirve para agregar archivos nuevos o actualizar el commit anterior y no generar commits innecesarios.
+git add -A // Para hacer uso de ammend los archivos deben de estar en staging
+git commit --amend // Remendar último commit
+
+GIT REFLOG
+Git nunca olvida. Git guarda todos los cambios aunque decidas borrarlos, al borrar un cambio lo que estás haciendo sólo es actualizar la punta del branch, para gestionar éstas puntas existe un mecanismo llamado registros de referencia o reflogs.
+.
+La gestión de estos cambios es mediante los hash’es de referencia (o ref) que son apuntadores a los commits.
+.
+Los recoges registran cuándo se actualizaron las referencias de Git en el repositorio local (sólo en el local), por lo que si deseas ver cómo has modificado la historia puedes utilizar el comando: 
+- git reflog
+
+GIT RESET
+El comando git reset es una herramienta compleja y versátil para deshacer cambios. Se invoca principalmente de tres formas distintas, que se corresponden con los argumentos de líneas de comandos --soft, --mixed y --hard. Cada uno de los tres argumentos se corresponde con los tres mecanismos de gestión de estados internos de Git: el árbol de confirmaciones (HEAD), el índice del entorno de ensayo y el directorio de trabajo.
+- git reset --hard [COMMIT-ID] // Perderá todo lo que se encuentra en staging y en el Working directory y se moverá el head al commit especificado
+- git reset --soft [COMMIT-ID] // Te recuperará todos los cambios que tengas diferentes al commit eff544f, los agregará al staging area y moverá el head al commit especificado
+
+GIT GREP
+Busca dentro de los contenidos de los commits aquello que le especifiques y dependiendo de las opciones dadas te mostrará el resultado.
+- git grep color -->use la palabra color
+- git grep -c [PALABRA] --> cuantas veces use la palabra la palabra especificada
+- git grep -c “<p>” –> cuantas veces use la etiqueta <p>
+- git grep -n [PALABRA]–> en que lineas usas la palabra especificada
+
+COMANDOS COLABORATIVOS
+- git shortlog -sn // muestra cuantos commit han hecho cada miembros del equipo.
+- git shortlog -sn --all // muestra cuantos commit han hecho cada miembros del equipo hasta los que han sido eliminado
+- git shortlog -sn --all --no-merge // muestra cuantos commit han hecho cada miembros quitando los eliminados sin los merges
+- git blame [NOMBRE_ARCHIVO] // muestra quien hizo cada cosa linea por linea
+- git COMANDO --help // muestra como funciona el comando.
+- git blame ARCHIVO -L[linea_inicial],[linea_final] // muestra quien hizo cada cosa linea por linea indicándole desde que linea ver ejemplo -L35,50
+- git branch -r **// se muestran todas las ramas remotas
+- git branch -a // se muestran todas las ramas tanto locales como remotas
