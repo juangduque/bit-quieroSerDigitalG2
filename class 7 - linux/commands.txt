@@ -1,6 +1,6 @@
 mkdir [nombre carpeta] - Crea un nuevo directorio/carpeta
 rmdir [nombre carpeta]- Borra un directorio/carpeta
-rm - Borra un archivo
+rm - Borra un archivo - Borra un archivo
 touch [nombre archivo] - Crea un nuevo archivo vacío
 nano [nombre archivo] - Editor de archivos
 vi [nombre archivo]/ vim - Editor de archivos
