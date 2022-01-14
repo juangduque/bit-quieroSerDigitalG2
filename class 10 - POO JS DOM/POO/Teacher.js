@@ -19,6 +19,14 @@ class Teacher extends Person{
     this.prefix = prefix;
   };
 
+  getSalary(){
+    return this.salary;
+  };
+
+  setSalary( salary ){
+    this.salary = salary
+  };
+
   greetingAsTeacher(){
     return "Hello, my name is " + this.prefix + " " + this.name + " and I teach " +  this.classes[0]
   };

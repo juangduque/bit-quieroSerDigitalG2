@@ -4,4 +4,4 @@ let person2 = new  Person("Ana", "Frank", 18, "female", ["read book", "view the 
 // let person3 = new  Person("Ana", "Frank", 18, "female", true); //this is wrong interests
 
 let teacher = new Teacher("Jhon", "Doe", 40, "male", "teach", "404","licenciado en lenguas", 500, ["spanish", "english"], "mr.");
-let student = new Student();
+let student = new Student("Jhon", "Doe", 40, "male", "teach", "grade", {math: 3.5}, "high school" );
