@@ -30,4 +30,9 @@ const texth5Node = document.createTextNode("Soy un h5");
 h5.append( texth5Node );
 document.body.append(h5);
 
-h5.removeChild()
+const eventType = "dblclick";
+const controlFunction = () => {
+  alert("el btn esta siendo clickeado")
+};
+const eventListener = document.querySelector("#btn").addEventListener(eventType, controlFunction);
+//document.querySelector("#btn").removeEventListener(eventType, eventListener)
