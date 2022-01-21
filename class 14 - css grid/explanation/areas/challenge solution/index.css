@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  height: 300px;
+  background-color: deepskyblue;
+  display: grid;
+  grid-template: repeat(3, 50px) / repeat(3, 50px);
+  grid-template-areas: 
+    "area1 area2 area2"
+    "area3 area3 area4"
+    "area5 area6 area7";
+  gap: 5px
+}
+.item{
+  background-color: blue;
+}
+.item1{
+  grid-area: area1;
+}
+.item2{
+  grid-area: area2;
+}
+.item3{
+  grid-area: area3;
+}

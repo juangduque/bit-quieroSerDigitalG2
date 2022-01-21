@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+  height: 500px;
+  background-color: aquamarine;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px;
+  /* grid-template: 100px  200px/ 50px 30%; */
+  /* row-gap: 5px;
+  column-gap: 10px; */
+  gap: 10px;
+  /* Set horizontal justification */
+  justify-content: start; 
+  /* Set vertical */
+  align-content: start; 
+  /* place-content: end; */
+  justify-items: center;
+  align-items: center;
+}
+.item{
+  background-color: green;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.item5{
+  justify-self: start;
+  align-self: end;
+}
+
+
