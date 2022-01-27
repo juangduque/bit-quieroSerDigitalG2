@@ -1,3 +1,6 @@
+// Correr npm install antes de ejecutar este código
+// Para ejecutar este código se usa: node .\src\callbacks\challenge.js
+
 let XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 let API = 'https://rickandmortyapi.com/api/character/';
 const fetchData = (url_api, callback) => {
