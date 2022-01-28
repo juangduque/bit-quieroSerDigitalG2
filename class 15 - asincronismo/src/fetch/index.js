@@ -1,7 +1,7 @@
 console.log("inicia el llamado a la API");
-let apidata = fetch('https://rickandmortyapi.com/api/location/1')
+let apidata = fetch('https://swapi.dev/api/people/')
   .then(response => response.json())
-  .then(data => data);
+  .then(data => cosole.log(data));
 
 console.log("si", apidata);
 
