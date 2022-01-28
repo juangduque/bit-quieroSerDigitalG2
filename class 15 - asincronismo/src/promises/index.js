@@ -1,23 +1,37 @@
 // Run file: node .\src\promises\index.js
 
-const somethingWillHappen = () => {
-  return new Promise( (resolve, reject) => {
-    true ? resolve("Se cumplió") :  reject("No se cumplió") 
-  })
+function constructorDePromesa( resolvio, rechazo ){
+  const number = 1;
+  if( number >= 0){
+    resolvio("si se cumplió");
+  }else{
+    rechazo("no se cumplio");
+  };
 };
 
-function done(response){
-  console.log(response)
+function algoVaAPasar(){
+  let promesa = new Promise( constructorDePromesa );
+  return promesa;
 };
 
-function errorHappened(error){
-  console.error(error)
+function cuandoSeCumple( siSeLlegaACumplir ){
+  console.log( ` ${siSeLlegaACumplir} esto que llamaste` );
 };
 
-// somethingWillHappen()
-//   .then( (response) => console.log(response) )
-//   .catch( (error) => console.error(error) );
+function cuandoNoSeCumple( noSeCumplio ){
+  console.log( noSeCumplio );
+};
 
-somethingWillHappen()
-  .then( done )
-  .catch( errorHappened );
+algoVaAPasar().then( cuandoSeCumple ).catch( cuandoNoSeCumple );
+
+// Las dos funciones son equivalentes.
+// const algoVaAPasar = () => { 
+//   return new Promise( (resolve, reject) =>{
+  
+//       if(true){
+//           resolve('hey!');
+//       }else {
+//           reject('woops')
+//       }
+//   })
+// }
