@@ -20,6 +20,7 @@ switch(menu){
       console.log(`el promedio es ${promedio}, el estudiante reprobo`)
     }
     break;
+
   case 3:
     let fordType;
     fordType = prompt("According to on your choice, write fiesta or focus");
@@ -35,6 +36,7 @@ switch(menu){
         default: console.log("this car is not valid");  
     }
     break;
+
   case 4:
     let newArr = []
     let i = 1
@@ -49,9 +51,11 @@ switch(menu){
     }else{
         alert('ingresa un numero positivo')
     }
+    break;
   
   default:
     console.log("opción no válida");
+    break;
 }
 
 
