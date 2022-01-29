@@ -20,7 +20,36 @@ switch(menu){
       console.log(`el promedio es ${promedio}, el estudiante reprobo`)
     }
     break;
-    
+  case 3:
+    let fordType;
+    fordType = prompt("According to on your choice, write fiesta or focus");
+    console.log(fordType);
+
+    switch (fordType) {
+        case "focus":
+            console.log("you receives a deduction of: 5%");
+            break;
+        case "fiesta":
+            console.log("you receives a deduction of: 10%");
+            break;
+        default: console.log("this car is not valid");  
+    }
+    break;
+  case 4:
+    let newArr = []
+    let i = 1
+    let num = prompt("ingresa un número")
+    if(num >0){
+        while (i <num) {
+            newArr.push(i)
+            i +=2
+        }
+        alert(newArr)
+
+    }else{
+        alert('ingresa un numero positivo')
+    }
+  
   default:
     console.log("opción no válida");
 }
