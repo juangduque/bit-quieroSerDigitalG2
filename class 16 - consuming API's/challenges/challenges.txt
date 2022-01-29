@@ -1,0 +1,8 @@
+1. Un programa que reciba 2 números y me muestre el mayor de ellos.
+2. Al programa se le ingresan 3 notas de un alumno. El programa debe calcular la media e indicar si esta o no reprobado.
+3. Un programa para venta de vehículos a la venta. Si el coche ingresado es un ford focus el descuento va a ser del 5%,
+   si es un ford fiesta el descuento va a ser del 10%. Mostrar en consola el respectivo descuento.
+4. Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla todos los números impares
+   desde 1 hasta ese número separados por comas.
+5. El usuario ingresa 2 números uno de ellos va a ser hasta donde va a ir el programa, y el otro para indicar de cuanto
+   en cuanto van a ser los saltos separados por comas. El conteo se va a iniciar en cero.
