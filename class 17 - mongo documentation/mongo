@@ -39,6 +39,8 @@ OPERACIONES CRUD EN LA CONSOLA DE MONGO:
 - db.[nombre colección].help() //Muestra los comandos de las operaciones que se pueden hacer en la colección
   especificada
     
+   nota: nc es de nombre colección, reemplaza nc por el nombre de la colección.
+
     BUSQUEDAS
 - db.[n.c.].find({filtro}) //Busca en la colección y devuelve el resultado si cumple con el filtro Ej:
     db.inventario.find({elemento: "canvas"}) 	
