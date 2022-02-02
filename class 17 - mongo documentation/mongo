@@ -53,8 +53,8 @@ OPERACIONES CRUD EN LA CONSOLA DE MONGO:
 -db.dropDatabase(); //Dentro de la db, se ejecuta este comando para borrar la db
 
    ACTUALIZACIONES
-- db.nc.updateOne({_id: ObjectId('[id documento]', {$set:{[atributo a actualizar]:[valor]}})})
-- db.nc.updateMany({_id: ObjectId('[id documento]', {$set:{[atributo a actualizar]:[valor]}})}) Como se puede notar
+- db.nc.updateOne({_id: ObjectId('[id documento]')}, {$set:{[atributo a actualizar]:[valor]}})})
+- db.nc.updateMany({_id: ObjectId('[id documento]')}, {$set:{[atributo a actualizar]:[valor]}})}) Como se puede notar
   se los argumentos entre updateOne y updateMany son iguales, la diferencia es que updateMany va a actualizar todos
   los campos que cumplan con lo requeridos.
 
