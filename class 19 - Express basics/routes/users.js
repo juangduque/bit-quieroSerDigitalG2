@@ -66,13 +66,13 @@ router.post('/', (req, res) => {
 
 router.put('/:id/name/:name/username/:username', (req, res) => {
   const { id, name, username } = req. params;
-  usersDB.forEach( (item) => {
-    if(item.id === parseInt(id)){
-      item.name = name
-      item.userName = username
-    }
-  })
   try{
+    usersDB.forEach( (item) => {
+      if(item.id === parseInt(id)){
+        item.name = name
+        item.userName = username
+      }
+    })
     res.json({
       message: "User name and it's name modified succesfuly"
     })
@@ -86,8 +86,8 @@ router.put('/:id/name/:name/username/:username', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params
-  usersDB = usersDB.filter( item => item.id !== parseInt(id) );
   try{
+    usersDB = usersDB.filter( item => item.id !== parseInt(id) );
     res.json({
       message: "User deleted succesfuly"
     })
