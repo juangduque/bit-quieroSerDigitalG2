@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const usersDB = [
+let usersDB = [
   {
     id: 1,
     name: "Jhon",
@@ -17,7 +17,7 @@ const usersDB = [
   }
 ];
 // http://localhost:3000/users?size=10
-router.get('/', (request, response) => {
+router.get('/withQuery', (request, response) => {
   const size = request.query.size
   if(size){
     response.json({
@@ -28,6 +28,9 @@ router.get('/', (request, response) => {
     response.json(usersDB);
   };
 });
+router.get('/', (req, res) => {
+  res.json(usersDB);
+})
 router.get('/:id', (request, response) => {
   const { id } = request.params;
   let userRequested = null;
@@ -39,38 +42,61 @@ router.get('/:id', (request, response) => {
   if(userRequested){
     response.json( userRequested )
   }else{
-    response.json({
+    response.status(404).json({
       message: "user not found",
-      statusCode: "404"
     })
   };
 });
-router.get('/params/:id/option/:options/name/:name', (request, response) => {
-  const { id, options, name } = request.params;
-  // let id = request.params.id;
-  // let options = request.params.options;
-  // let name = request.params.name;
 
-  response.json({
-    id,
-    options,
-    name
-  })
-});
+// http://127.0.0.1:3000/users?id=3&name=Jhon&surname=Duarte&userName=Jhon123&phone=123456
 router.post('/', (req, res) => {
-  res.json({
-    message: "hello from POST method"
-  })
+  try{
+    const newUser = req.query;
+    usersDB.push( newUser )
+    res.status(201).json({
+      message: "User created succesfuly"
+    })
+  }catch(error){
+    res.status(500).json({
+      message: "There was an internal error",
+      error
+    })
+  };
 });
-router.put('/', (req, res) => {
-  res.json({
-    message: "hello from PUT method"
+
+router.put('/:id/name/:name/username/:username', (req, res) => {
+  const { id, name, username } = req. params;
+  usersDB.forEach( (item) => {
+    if(item.id === parseInt(id)){
+      item.name = name
+      item.userName = username
+    }
   })
+  try{
+    res.json({
+      message: "User name and it's name modified succesfuly"
+    })
+  }catch(error){
+    res.status(500).json({
+      message: "There was an internal error",
+      error
+    })
+  }
 });
-router.delete('/', (req, res) => {
-  res.json({
-    message: "hello from DELETE method"
-  })
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params
+  usersDB = usersDB.filter( item => item.id !== parseInt(id) );
+  try{
+    res.json({
+      message: "User deleted succesfuly"
+    })
+  }catch(error){
+    res.status(500).json({
+      message: "There was an internal error",
+      error
+    })
+  }
 });
 
 module.exports = router;
