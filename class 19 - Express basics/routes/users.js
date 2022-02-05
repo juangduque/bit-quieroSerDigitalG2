@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const UsersService = require('../services/users.service');
 let usersDB = [
   {
     id: 1,
@@ -16,6 +17,8 @@ let usersDB = [
     phone: "3001234568"
   }
 ];
+
+const service = new UsersService;
 // http://localhost:3000/users?size=10
 router.get('/withQuery', (request, response) => {
   const size = request.query.size
@@ -29,7 +32,8 @@ router.get('/withQuery', (request, response) => {
   };
 });
 router.get('/', (req, res) => {
-  res.json(usersDB);
+  const users = service.getAllUsers();
+  res.json(users);
 });
 router.get('/:id', (request, response) => {
   const { id } = request.params;
@@ -47,7 +51,6 @@ router.get('/:id', (request, response) => {
     })
   };
 });
-
 
 router.post('/', (req, res) => {
   const {body}= req;
