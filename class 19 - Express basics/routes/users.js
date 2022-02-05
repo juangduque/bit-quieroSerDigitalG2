@@ -30,7 +30,7 @@ router.get('/withQuery', (request, response) => {
 });
 router.get('/', (req, res) => {
   res.json(usersDB);
-})
+});
 router.get('/:id', (request, response) => {
   const { id } = request.params;
   let userRequested = null;
@@ -48,22 +48,20 @@ router.get('/:id', (request, response) => {
   };
 });
 
-// http://127.0.0.1:3000/users?id=3&name=Jhon&surname=Duarte&userName=Jhon123&phone=123456
+
 router.post('/', (req, res) => {
-  console.log(req.body)
-  res.send("si sirve");
-  // try{
-  //   const newUser = req.query;
-  //   usersDB.push( newUser )
-  //   res.status(201).json({
-  //     message: "User created succesfuly"
-  //   })
-  // }catch(error){
-  //   res.status(500).json({
-  //     message: "There was an internal error",
-  //     error
-  //   })
-  // };
+  const {body}= req;
+  try{
+    usersDB.push( body );
+    res.status(201).json({
+      message: "User created succesfuly"
+    })
+  }catch(error){
+    res.status(500).json({
+      message: "There was an internal error",
+      error
+    })
+  };
 });
 
 router.put('/:id/name/:name/username/:username', (req, res) => {

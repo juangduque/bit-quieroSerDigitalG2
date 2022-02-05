@@ -8,12 +8,15 @@ const PORT = 3000;
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.json());
 
 app.get('/', (request, response) => {
   response.send("Hola mundo ")
 });
 
 routerApi(app);
+
+app.use("/app", express.static("public"));
 
 app.listen(PORT, () => {
   console.log(`Running app in: http://127.0.0.1:${PORT}`)
