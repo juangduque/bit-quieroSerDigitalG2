@@ -38,16 +38,15 @@ router.get('/', (req, res) => {
   res.json(users);
 });
 
-router.get('/:id', (request, response) => {
-  const { id } = request.params;
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
   const result = service.getUserById(id);
-  console.log(result.error);
   if(result.error !== ""){
-    response.status( result.statusCode ).json({
-      user: result.error
+    res.status( result.statusCode ).json({
+      message: result.error
     })
   }else{
-    response.status( result.statusCode ).json({
+    res.status( result.statusCode ).json({
       user: result.body
     })
   };
@@ -55,52 +54,44 @@ router.get('/:id', (request, response) => {
 
 router.post('/', (req, res) => {
   const {body}= req;
-  try{
-    usersDB.push( body );
-    res.status(201).json({
-      message: "User created succesfuly"
+  const result = service.createUser(body);
+  if(result.error !== ""){
+    res.status( result.statusCode ).json({
+      message: result.error
     })
-  }catch(error){
-    res.status(500).json({
-      message: "There was an internal error",
-      error
+  }else{
+    res.status( result.statusCode ).json({
+      message: result.body
     })
   };
 });
 
-router.put('/:id/name/:name/username/:username', (req, res) => {
-  const { id, name, username } = req. params;
-  try{
-    usersDB.forEach( (item) => {
-      if(item.id === parseInt(id)){
-        item.name = name
-        item.userName = username
-      }
+router.put('/:id', (req, res) => {
+  const {body}= req;
+  const result = service.updateUser(body);
+  if(result.error !== ""){
+    res.status( result.statusCode ).json({
+      message: result.error
     })
-    res.json({
-      message: "User name and it's name modified succesfuly"
+  }else{
+    res.status( result.statusCode ).json({
+      message: result.body
     })
-  }catch(error){
-    res.status(500).json({
-      message: "There was an internal error",
-      error
-    })
-  }
+  };
 });
 
 router.delete('/:id', (req, res) => {
   const { id } = req.params
-  try{
-    usersDB = usersDB.filter( item => item.id !== parseInt(id) );
-    res.json({
-      message: "User deleted succesfuly"
+  const result = service.deleteUser(id);
+  if(result.error !== ""){
+    res.status( result.statusCode ).json({
+      message: result.error
     })
-  }catch(error){
-    res.status(500).json({
-      message: "There was an internal error",
-      error
+  }else{
+    res.status( result.statusCode ).json({
+      message: result.body
     })
-  }
+  };
 });
 
 module.exports = router;
