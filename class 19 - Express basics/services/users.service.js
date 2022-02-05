@@ -24,8 +24,18 @@ class UsersService{
     return this.users;
   };
 
-  getUserById(){
-
+  getUserById(id){
+    let userRequested = null;
+    usersDB.forEach( (item) => {
+      if(item.id === parseInt( id ) ){
+        userRequested = item;
+      };
+    });
+    if(userRequested){
+      return { error: "", body: userRequested, statusCode: 200 };
+    }else{
+      return { error: "User not found", body: "", statusCode: 404 };
+    };
   };
 
   createUser(){

@@ -31,23 +31,24 @@ router.get('/withQuery', (request, response) => {
     response.json(usersDB);
   };
 });
+
+// DE AQUI PARA ABAJO ESTAN LOS MÉTODOS OFICIALES DE LA APP
 router.get('/', (req, res) => {
   const users = service.getAllUsers();
   res.json(users);
 });
+
 router.get('/:id', (request, response) => {
   const { id } = request.params;
-  let userRequested = null;
-  usersDB.forEach( (item) => {
-    if(item.id === parseInt( id ) ){
-      userRequested = item;
-    };
-  });
-  if(userRequested){
-    response.json( userRequested )
+  const result = service.getUserById(id);
+  console.log(result.error);
+  if(result.error !== ""){
+    response.status( result.statusCode ).json({
+      user: result.error
+    })
   }else{
-    response.status(404).json({
-      message: "user not found",
+    response.status( result.statusCode ).json({
+      user: result.body
     })
   };
 });
