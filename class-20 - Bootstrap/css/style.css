@@ -1,0 +1,11 @@
+:root {
+    --color-bonito: #33CAFF;
+}
+
+.titulo {
+    color: var(--color-bonito);
+}
+
+.imagen-redonda {
+    border-radius: 50px;
+}
