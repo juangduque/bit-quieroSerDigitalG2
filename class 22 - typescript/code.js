@@ -44,3 +44,34 @@ function saludo(nombre, apellido) {
     return "Hola ".concat(nombre, " ").concat(apellido, ", bienvenido...");
 }
 console.log(saludo('Miguel', 'Nieto'));
+function hago_un_proceso(valor, accion_usuario) {
+    var localArray;
+    switch (accion_usuario) {
+        case 'agregar':
+            if (localStorage.getItem("nuestro_array") == null) {
+                localStorage.setItem("nuestro_array", valor);
+            }
+            else {
+                localArray = localStorage.getItem("nuestro_array");
+                console.clear();
+                console.log(localArray);
+                localArray = localArray.split(',');
+                console.log(localArray);
+                localArray.push(valor);
+                localStorage.setItem("nuestro_array", localArray);
+            }
+            break;
+        case 'eliminar':
+            localArray = localStorage.getItem("nuestro_array");
+            localArray = localArray.split(',');
+            if (localArray.length > 1) {
+                localArray.pop();
+                localStorage.setItem("nuestro_array", localArray);
+            }
+            else {
+                localStorage.removeItem("nuestro_array");
+            }
+            break;
+    }
+}
+hago_un_proceso('mi_valor', 'eliminar');
