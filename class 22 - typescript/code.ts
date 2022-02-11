@@ -68,37 +68,98 @@ function saludo(nombre: string, apellido?: string): string {
 console.log(saludo('Miguel', 'Nieto'))
 
 
+// function hago_un_proceso(valor: any, accion_usuario: string): void {
+//     let localArray: any;
+//     switch (accion_usuario) {
+//         case 'agregar':
+//             if (localStorage.getItem("nuestro_array") == null) {
+//                 localStorage.setItem("nuestro_array", valor);
+//             } else {
+//                 localArray = localStorage.getItem("nuestro_array");
+//                 console.clear();
+//                 console.log(localArray);
+//                 localArray = localArray.split(',');
+//                 console.log(localArray);
+//                 localArray.push(valor);
+//                 localStorage.setItem("nuestro_array", localArray);
+//             }
+//             break;
+//         case 'eliminar':
+//             localArray = localStorage.getItem("nuestro_array");
+//             localArray = localArray.split(',');
+//             if(localArray.length > 1){
+//                 localArray.pop();
+//                 localStorage.setItem("nuestro_array",localArray);
+//             }else{
+//                 localStorage.removeItem("nuestro_array");
+//             }
+//             break;
+//     }
+// }
 
-function hago_un_proceso(valor: any, accion_usuario: string): void {
-    let localArray: any;
-    switch (accion_usuario) {
-        case 'agregar':
-            if (localStorage.getItem("nuestro_array") == null) {
-                localStorage.setItem("nuestro_array", valor);
-            } else {
-                localArray = localStorage.getItem("nuestro_array");
-                console.clear();
-                console.log(localArray);
-                localArray = localArray.split(',');
-                console.log(localArray);
-                localArray.push(valor);
-                localStorage.setItem("nuestro_array", localArray);
-            }
-            break;
-        case 'eliminar':
-            localArray = localStorage.getItem("nuestro_array");
-            localArray = localArray.split(',');
-            if(localArray.length > 1){
-                localArray.pop();
-                localStorage.setItem("nuestro_array",localArray);
-            }else{
-                localStorage.removeItem("nuestro_array");
-            }
-            break;
+// hago_un_proceso('mi_valor', 'eliminar');
+
+
+//interface
+interface Iestrucutura{
+    identificador: number,
+    nombre: string,
+    imagen: string
+}
+
+function soy_interface(data_api:Iestrucutura):any{
+    return `El identificador del personaje es: ${data_api.identificador} y el nombre es ${data_api.nombre}`;
+}
+
+console.log(soy_interface({identificador:1, nombre:"Rick", imagen:"https://rickandmortyapi.com/api/character/avatar/1.jpeg"}));
+
+
+//Clases
+
+class Usuario {
+    public nombre: string;
+    public apellido: string;
+    private edad: number;
+    private correo: string;
+
+    constructor(nombreUsuario: string, apellidoUsuario: string, edadUsuario: number, correoUsuario: string){
+        this.nombre = nombreUsuario;
+        this.apellido = apellidoUsuario;
+        this.edad = edadUsuario;
+        this.correo = correoUsuario;
     }
 
+    saludar(){
+        return `Buenas noches ${this.nombre}...`;
+    }
+
+    resumen_ventas_x_vendedor(nro_factura: number, estado_entrega: boolean){
+        let estado = estado_entrega ? 'entregado' : 'en reparto';
+        return `El vendedor ${this.nombre}, tuvo una factura con nro ${nro_factura} y su estado es ${estado}`;
+    }
 
 
 }
 
-hago_un_proceso('mi_valor', 'eliminar');
+class Ventas extends Usuario{
+    factura: number;
+    entregado: boolean;
+
+    constructor(
+        nombreUsuario: string, apellidoUsuario: string, edadUsuario: number, 
+        correoUsuario: string, facturaVenta: number, EstadoEntrega: boolean
+        ){
+            super(nombreUsuario, apellidoUsuario, edadUsuario, correoUsuario);
+            this.factura = facturaVenta;
+            this.entregado = EstadoEntrega;
+        }
+
+        resumen_ventas_x_vendedor(){
+            return super.resumen_ventas_x_vendedor(this.factura, this.entregado);
+        }
+    
+}
+
+var persona = new Ventas("Joan", "Melo", 95, "joan@correo.com", 123123123, true);
+console.log(persona.resumen_ventas_x_vendedor());
+
