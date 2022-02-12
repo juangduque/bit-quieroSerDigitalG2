@@ -11,19 +11,19 @@ import { HomeComponent } from './components/home/home.component';
 import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    Pagina404Component,
-    LoginComponent,
-    HomeComponent,
-    SliderComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        Pagina404Component,
+        LoginComponent,
+        HomeComponent,
+        SliderComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
