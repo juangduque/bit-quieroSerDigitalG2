@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -7,6 +7,8 @@ import Swal from 'sweetalert2'
     styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+    @Input() titulo_navbar : any;
 
     constructor() { }
 
