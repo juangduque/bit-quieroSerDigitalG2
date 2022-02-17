@@ -1,0 +1,9 @@
+.negro-pepe {
+    background-color: var(--color-negro);
+    margin: 20px 20px 0 10px;
+    border-radius: 50px;
+}
+
+.navbar-pepe .navbar-brand {
+    margin-right: 85%;
+}
