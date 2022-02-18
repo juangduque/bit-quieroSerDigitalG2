@@ -13,6 +13,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegistroProductoComponent } from './components/registro-producto/registro-producto.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
         DashboardComponent,
         ProductosComponent,
         NavbarComponent,
+        RegistroProductoComponent,
     ],
     imports: [
         BrowserModule,

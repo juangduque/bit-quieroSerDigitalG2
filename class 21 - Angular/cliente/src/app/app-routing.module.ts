@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { Pagina404Component } from './components/pagina404/pagina404.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { RegistroProductoComponent } from './components/registro-producto/registro-producto.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: 'sistema', component: DashboardComponent },
     { path: 'inventario', component: ProductosComponent },
     { path: '404', component: Pagina404Component },
+    { path: 'producto-formulario', component: RegistroProductoComponent },
     { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
 
