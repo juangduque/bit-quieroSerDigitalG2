@@ -11,6 +11,7 @@
             <input type="text" formControlName="precio" class="form-control">
             <p class="fw-bold text-danger" *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">Se necesita el precio del producto, bestia</p>
             <p class="fw-bold text-danger" *ngIf="productoForm.get('precio')?.hasError('pattern')">El precio no es valido, debe de ser un numero</p>
+            <p class="fw-bold text-danger" *ngIf="productoForm.get('precio')?.hasError('min') && productoForm.get('precio')?.touched">El precio debe ser diferente a 0</p>
         </div>
         <div class="col-12">
             <label for="proveedorProducto" class="form-label">Proveedor</label>
