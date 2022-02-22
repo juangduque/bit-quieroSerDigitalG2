@@ -2,7 +2,7 @@
 
 <div class="contenido w-75">
     <div class="d-flex justify-content-end mb-3">
-        <button class="btn btn-dark">Registrar producto</button>
+        <button class="btn btn-dark" routerLink="/crear-producto">Registrar producto</button>
     </div>
     <table class="table" *ngIf="listaProductos.length > 0">
         <thead>
@@ -21,8 +21,8 @@
                 <td>{{ producto_data.precio }}</td>
                 <td>{{ producto_data.proveedor }}</td>
                 <td>
-                    <i class="fa-solid fa-pencil icon-pepe px-2" routerLink="/producto-formulario"></i>
-                    <i class="fa-solid fa-trash icon-pepe px-2"></i>
+                    <i class="fa-solid fa-pencil icon-pepe px-2" [routerLink]="['/editar-producto', producto_data._id]"></i>
+                    <i class="fa-solid fa-trash icon-pepe px-2" (click)="eliminarProducto(producto_data._id)"></i>
                 </td>
             </tr>
         </tbody>

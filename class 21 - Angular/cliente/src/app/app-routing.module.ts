@@ -14,7 +14,8 @@ const routes: Routes = [
     { path: 'sistema', component: DashboardComponent },
     { path: 'inventario', component: ProductosComponent },
     { path: '404', component: Pagina404Component },
-    { path: 'producto-formulario', component: RegistroProductoComponent },
+    { path: 'crear-producto', component: RegistroProductoComponent },
+    { path: 'editar-producto/:id', component: RegistroProductoComponent },
     { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
 
