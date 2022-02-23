@@ -42,8 +42,8 @@ export class ListaUsuariosComponent implements OnInit {
                     Swal.fire({
                         icon: 'success',
                         title: 'El usuario se elimino correctamente'
-                      })
-                      this.obtenerUsuarios()
+                    })
+                    this.obtenerUsuarios()
                 }, error => {
                     console.log(error)
                 })
