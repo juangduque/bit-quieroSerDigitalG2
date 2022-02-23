@@ -54,7 +54,7 @@ exports.actualizarUsuario = async(req, res) => {
         usuario.direccion = direccion;
 
         usuario = await Usuario.findOneAndUpdate({ _id: req.params.id }, usuario, { new: true });
-
+        res.json(usuario)
     } catch (error) {
         console.log(error);
         res.status(500).send('Ups... Hay un error, comuniquese con soporte');

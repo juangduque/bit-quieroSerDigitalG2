@@ -6,30 +6,27 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th colspan="2">Nombre</th>
+                <th>Correo</th>
+                <th>Edad</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th colspan="2">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr *ngFor="let data_usuario of listaUsuarios">
+                <td colspan="2">{{ data_usuario.nombre }} {{ data_usuario.apellido }}</td>
+                <td>{{ data_usuario.correo }}</td>
+                <td>{{ data_usuario.edad }}</td>
+                <td>{{ data_usuario.telefono }}</td>
+                <td>{{ data_usuario.direccion }}</td>
+                <td>
+                    <i class="fa-solid fa-pencil icon-pepe px-2"></i>
+                    <i class="fa-solid fa-trash icon-pepe px-2" (click)="eliminarUsuario(data_usuario._id)"></i>
+                </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+
         </tbody>
     </table>
 </div>
