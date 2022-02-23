@@ -1,0 +1,44 @@
+<app-dashboard titulo_navbar="Crear usuario"></app-dashboard>
+<div class="contenido w-75">
+    <form [formGroup]="usuarioForm" (ngSubmit)="infoUsuario()" class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched">El nombre es requerido</span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Apellido</label>
+            <input type="text" formControlName="apellido" class="form-control">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('apellido')?.hasError('required') && usuarioForm.get('apellido')?.touched">El apellido es requerido</span>
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Edad</label>
+            <input type="text" formControlName="edad" class="form-control">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('edad')?.hasError('required') && usuarioForm.get('edad')?.touched">La edad es requerida</span>
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('edad')?.hasError('pattern')">La edad no es valida</span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Correo</label>
+            <input type="email" formControlName="correo" class="form-control">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('correo')?.hasError('required') && usuarioForm.get('correo')?.touched">El correo es requerido</span>
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('correo')?.hasError('pattern')">El correo no es valido</span>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Contraseña</label>
+            <input type="password" formControlName="password" class="form-control">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('password')?.hasError('required') && usuarioForm.get('password')?.touched">La contraseña es requerida</span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Telefono</label>
+            <input type="text" formControlName="telefono" class="form-control">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('telefono')?.hasError('pattern')">El telefono no es valido</span>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Direcci&oacute;n</label>
+            <input type="text" formControlName="direccion" class="form-control">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-dark" [disabled]="usuarioForm.invalid">Enviar</button>
+        </div>
+    </form>
+</div>

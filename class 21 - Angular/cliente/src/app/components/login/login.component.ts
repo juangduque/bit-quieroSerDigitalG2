@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
         console.log(this.loginForm);
         console.log(this.loginForm.get('usuario')?.value);
 
-        const data_usuario: Usuario = {
-            correo: this.loginForm.get('usuario')?.value,
-            password: this.loginForm.get('pass')?.value
-        }
+        // const data_usuario: Usuario = {
+        //     correo: this.loginForm.get('usuario')?.value,
+        //     password: this.loginForm.get('pass')?.value
+        // }
 
         this.router.navigate(['/']);
 
@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
             text: 'Tienes x notificaciones',
         })
 
-        console.log(data_usuario);
 
     }
 

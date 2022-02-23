@@ -14,6 +14,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RegistroProductoComponent } from './components/registro-producto/registro-producto.component';
+import { ListaUsuariosComponent } from './components/lista-usuarios/lista-usuarios.component';
+import { RegistroUsuariosComponent } from './components/registro-usuarios/registro-usuarios.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,8 @@ import { RegistroProductoComponent } from './components/registro-producto/regist
         ProductosComponent,
         NavbarComponent,
         RegistroProductoComponent,
+        ListaUsuariosComponent,
+        RegistroUsuariosComponent,
     ],
     imports: [
         BrowserModule,
