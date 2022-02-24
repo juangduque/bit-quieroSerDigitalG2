@@ -1,4 +1,4 @@
-<app-dashboard titulo_navbar="Crear usuario"></app-dashboard>
+<app-dashboard titulo_navbar="{{tituloFormulario}}"></app-dashboard>
 <div class="contenido w-75">
     <form [formGroup]="usuarioForm" (ngSubmit)="infoUsuario()" class="row g-3">
         <div class="col-md-6">

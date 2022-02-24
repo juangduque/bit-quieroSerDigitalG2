@@ -20,7 +20,7 @@ const routes: Routes = [
     { path: 'editar-producto/:id', component: RegistroProductoComponent },
     { path: 'usuarios', component:  ListaUsuariosComponent},
     { path: 'crear-usuario', component:  RegistroUsuariosComponent},
-    { path: 'editar-usuario', component:  RegistroUsuariosComponent},
+    { path: 'editar-usuario/:id', component:  RegistroUsuariosComponent},
     { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];
 

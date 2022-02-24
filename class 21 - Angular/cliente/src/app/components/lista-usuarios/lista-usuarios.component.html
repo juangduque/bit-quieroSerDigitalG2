@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-end mb-3">
         <button class="btn btn-dark" routerLink="/crear-usuario">Registrar usuario</button>
     </div>
-    <table class="table">
+    <table class="table" *ngIf="listaUsuarios.length > 0">
         <thead>
             <tr>
                 <th colspan="2">Nombre</th>
@@ -22,11 +22,12 @@
                 <td>{{ data_usuario.telefono }}</td>
                 <td>{{ data_usuario.direccion }}</td>
                 <td>
-                    <i class="fa-solid fa-pencil icon-pepe px-2"></i>
+                    <i class="fa-solid fa-pencil icon-pepe px-2" [routerLink]="['/editar-usuario', data_usuario._id]"></i>
                     <i class="fa-solid fa-trash icon-pepe px-2" (click)="eliminarUsuario(data_usuario._id)"></i>
                 </td>
             </tr>
 
         </tbody>
     </table>
+    <h2 class="fw-bold fs-1 text-danger text-center" *ngIf="listaUsuarios.length == 0">No hay datos registrados</h2>
 </div>
