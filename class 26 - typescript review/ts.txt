@@ -6,6 +6,9 @@ Con el siguiente comando lo instalaremos de manera global:
 Consultar la versión del compilador de TS:
 - tsc -v
 
+Aplicar cambios del archivo de configuración:
+- tsc
+
 Compilar de manera ‘automática’ nuestros ficheros .ts
 - tsc --watch your_file.ts / tsc -W your_file.ts
 
