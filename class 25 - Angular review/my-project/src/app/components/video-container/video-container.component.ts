@@ -29,13 +29,6 @@ export class VideoContainerComponent implements OnInit {
     }
   ];
 
-  videoCard: VideoCard = {
-    image: "",
-    title: "Sport center",
-    enterpriseLogo: "this is a logo",
-    enterpriseName: "bbc news",
-  };
-
   constructor() { }
 
   ngOnInit(): void {
