@@ -4,7 +4,9 @@
   [(ngModel)]="inputText"
   [disabled]="buttonDisable">
 <button (click)="onInputChange()">click me</button> -->
-<img [src]="product.image" alt="">
-<h2>{{ product.name}}</h2>
-<h3>{{ product.price}}</h3>
-<button (click)="addToCart()">Add to cart</button>
+<div class="product--container">
+  <img [src]="product.image" alt="">
+  <h2>{{ product.name}}</h2>
+  <h3>Precio: {{ product.price}}</h3>
+  <button (click)="addToCart()">Add to cart</button>
+</div>
