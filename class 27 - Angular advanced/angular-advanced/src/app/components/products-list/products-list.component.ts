@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Product } from '../../models/product.model';
 
+import { ProductsService } from '../../services/products.service';
+import { StoreService } from '../../services/store.service';
+
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
@@ -9,31 +12,28 @@ import { Product } from '../../models/product.model';
 })
 export class ProductsListComponent implements OnInit {
   totalPrice: number = 0;
-  myCart: Product[] = [];
-  products: Product[] = [
-    {
-      id: "1",
-      name: 'Toy',
-      price: 40,
-      image: "../../../assets/toy.jpg"
-    },
-    {
-      id: "2",
-      name: 'Car',
-      price: 60,
-      image: "../../../assets/toy.jpg"
-    }
-  ];
+  productsCounter: number = 0;
+  products: Product[] = [];
+  date: Date = new Date();
 
-  constructor() { }
+  constructor(
+    private productsService: ProductsService,
+    private storeService: StoreService
+  ) { }
 
   ngOnInit(): void {
+    this.storeService.getProducts().subscribe(data => {
+      this.products = data;
+    });
   }
 
   onAddToshoppingCart(product: Product) {
-    this.myCart.push(product);
+    this.productsService.addProduct(product);
+    // this.myCart.push(product); // Esta lógica está en el servicio
     // this.totalPrice += product.price; // Esto está sujeto a errores
-    this.totalPrice = this.myCart.reduce((total, product) => total + product.price, 0);
+    this.totalPrice = this.productsService.getTotal();
+    // this.totalPrice = this.myCart.reduce((total, product) => total + product.price, 0);
+    this.productsCounter = this.productsService.getQuatityOfProducts();
   }
 
 }

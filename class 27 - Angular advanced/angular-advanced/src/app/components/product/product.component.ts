@@ -10,10 +10,10 @@ import { Product } from '../../models/product.model';
 
 export class ProductComponent implements OnInit {
   inputText: string = "";
-  buttonDisable: boolean = true
+  buttonDisable: boolean = true;
   @Input() product: Product = {
     id: "",
-    name: '',
+    title: '',
     price: 0,
     image: ""
   };

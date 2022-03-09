@@ -1,12 +1,15 @@
-<!-- <p>{{ inputText }}</p>
-<input
-  type="text"
-  [(ngModel)]="inputText"
-  [disabled]="buttonDisable">
-<button (click)="onInputChange()">click me</button> -->
 <div class="product--container">
   <img [src]="product.image" alt="">
-  <h2>{{ product.name}}</h2>
-  <h3>Precio: {{ product.price}}</h3>
+  <h2>{{ product.title }}</h2>
+  <h3>Precio: {{ product.price }}</h3>
+  <!-- Pipe para convertir un string a letras mayúsculas -->
+  <!-- <h2>{{ product.title | uppercase }}</h2> -->
+
+  <!-- Generación de un pipe propio -->
+  <!-- <h2>{{ product.title | reverse }}</h2> -->
+
+  <!-- <p>Fecha: {{ Date()}}</p> -->
+  <!-- Pipe para pasar a un tipo de divisa requerido -->
+  <!-- <h3>Precio: {{ product.price | currency:'COP' }}</h3> -->
   <button (click)="addToCart()">Add to cart</button>
 </div>
