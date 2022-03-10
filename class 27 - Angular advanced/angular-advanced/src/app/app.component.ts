@@ -1,4 +1,6 @@
-import { Component,  } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { Product } from './models/product.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,10 @@ import { Component,  } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-advanced';
+  imgParent = '';
+  products: Product[] = [];
+
+  onLoaded(img: string) {
+    console.log('log padre', img);
+  }
 }
