@@ -1,0 +1,29 @@
+.videoCard_container{
+  width: 250px;
+  height: auto;
+  border: 1px black solid;
+}
+
+.upper_section{
+  width: 100%;
+}
+
+.upper_section img{
+  width: 100%;
+  height: auto;
+}
+
+.lower_section{
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding: 10px 0;
+}
+
+
+.lower_section .left_side{
+  background-image: url('../../assets/icons/lionLogo.png');
+  background-repeat: no-repeat;
+  margin-right: 10px;
+}
+
+
