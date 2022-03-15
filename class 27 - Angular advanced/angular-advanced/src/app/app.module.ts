@@ -8,6 +8,12 @@ import { ProductComponent } from './components/product/product.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { ReversePipe } from './pipes/reverse.pipe';
 import { ImgComponent } from './components/img/img.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PurchaseProductsComponent } from './pages/purchase-products/purchase-products.component';
+import { OrderResumeComponent } from './pages/order-resume/order-resume.component';
+import { HeaderComponent } from './components/header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +22,17 @@ import { ImgComponent } from './components/img/img.component';
     ProductsListComponent,
     ReversePipe,
     ImgComponent,
+    NotFoundComponent,
+    PurchaseProductsComponent,
+    OrderResumeComponent,
+    HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
