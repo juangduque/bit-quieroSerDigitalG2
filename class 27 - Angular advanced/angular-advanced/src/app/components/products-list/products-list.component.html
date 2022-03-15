@@ -1,8 +1,10 @@
 <h2>Productos en el carrito: {{ productsCounter }}</h2>
 <h3>Compra total: {{ totalPrice }}</h3>
 <h3>Fecha de hoy: {{ date | date:'short' }}</h3>
-<app-product
-  [product]="item"
-  *ngFor="let item of products"
-  (addedProduct)="onAddToshoppingCart($event)"
-></app-product>
+<div class="products_container">
+  <app-product
+    [product]="item"
+    *ngFor="let item of products"
+    (addedProduct)="onAddToshoppingCart($event)"
+  ></app-product>
+</div>
