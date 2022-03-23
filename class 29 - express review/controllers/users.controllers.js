@@ -42,11 +42,12 @@ class UsersController{
   };
 
   getById(id){
-    users.forEach((item) => {
-      if(item.id === id){
-        return { user: item, type: "succesful"}
+    for (let index = 0; index < users.length; index++) {
+      if(users[index].id === id){
+        console.log("item", users[index])
+        return { user: users[index], type: "succesful"}
       }
-    });
+    }
     return { message: "Usuario no encontrado", type: "error"}
   };
 

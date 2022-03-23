@@ -17,9 +17,8 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const { id } = req.params;
   const result = user_controllers.getById( id );
-  console.log("result: ", result)
   if(result.type === "error"){
-    // console.error(new Error( result.message) );
+    console.error(new Error( result.message) );
     res.send("Hubo un error");
   }else{
     res.json(result.user);
